@@ -19,13 +19,10 @@ export default {
       [DISPATCH_LOCATION]: `location/${DISPATCH_LOCATION}`
     }),
     changeTargetLocation() {
-      this.$store.dispatch({
-        type: DISPATCH_LOCATION,
-        location: [`${this.generateRandomNumber()}vh`, `${this.generateRandomNumber()}vw`]
-      })
+      this[DISPATCH_LOCATION]([`${this.generateRandomNumber()}vh`, `${this.generateRandomNumber()}vw`])
     },
     generateRandomNumber() {
-      Math.floor(Math.random() * 100) + 1
+      return Math.floor(Math.random() * 100) + 1
     },
   },
   computed: mapGetters({
