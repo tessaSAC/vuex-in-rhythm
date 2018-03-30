@@ -11,15 +11,19 @@ import { GET_LOCATION } from './storeModules/location'
 export default {
   data() {
     return {
-      location: {
+    }
+  },
+  computed: {
+    ...mapGetters({
+      [GET_LOCATION]: `location/${GET_LOCATION}`
+    }),
+    location() {
+      return {
         top: this[GET_LOCATION] ? this[GET_LOCATION][0] : '50vh',
         left: this[GET_LOCATION] ? this[GET_LOCATION][1] : '80vw'
       }
     }
-  },
-  computed: mapGetters({
-    [GET_LOCATION]: `location/${GET_LOCATION}`
-  })
+  }
 }
 </script>
 
