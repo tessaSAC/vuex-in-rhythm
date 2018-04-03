@@ -8,7 +8,7 @@ export const DISPATCH_LOCATION = 'DISPATCH_LOCATION'
 export const COMMIT_LOCATION = 'COMMIT_LOCATION'
 
 const state = {
-  divLocation: ['80vh', '50vw']  // (x, y)
+  divLocation: ['80vh', '50vw']  // (y, x)
 }
 
 const getters = {

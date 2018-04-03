@@ -2,6 +2,7 @@
   <div class="TheScrollyContainer">
     <TheTargetDiv ref="theTarget" />
     <TheCompanionDiv />
+    <button @click="scrollTo">scrollTo!</button>
   </div>
 </template>
 
@@ -13,7 +14,7 @@ export default {
   components: {
     TheTargetDiv,
     TheCompanionDiv,
-  }
+  },
 }
 </script>
 

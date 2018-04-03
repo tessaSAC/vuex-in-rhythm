@@ -4,6 +4,8 @@
       {{ coord }}
     </p>
 
+    <button @click="scrollTo">scrollTo!</button>
+    <button @click="scrollTop">scrollTop!</button>
     <button @click="changeTargetLocation">move target!</button>
   </div>
 </template>
@@ -14,6 +16,14 @@ import { GET_LOCATION } from './storeModules/location'
 import { DISPATCH_LOCATION } from './storeModules/location'
 
 export default {
+  props: {
+    TheScrollyContainer: {
+      required: true,
+    }
+  },
+  computed: mapGetters({
+    [GET_LOCATION]: `location/${GET_LOCATION}`
+  }),
   methods: {
     ...mapActions({
       [DISPATCH_LOCATION]: `location/${DISPATCH_LOCATION}`
@@ -24,9 +34,13 @@ export default {
     generateRandomNumber() {
       return Math.floor(Math.random() * 100) + 1
     },
+    scrollTo() {
+      const [y, x] = this[GET_LOCATION]
+      this.TheScrollyContainer.scrollTo(x, y)  // TheScrollyContainer doesn't exist
+    },
+    scrollTop() {
+      // this.$refs.theTarget.scrollTop() = 0
+    },
   },
-  computed: mapGetters({
-    [GET_LOCATION]: `location/${GET_LOCATION}`
-  })
 }
 </script>

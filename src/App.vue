@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <TheScrollyContainer />
-    <TheCoordinatesDisplay />
+    <TheScrollyContainer ref="TheScrollyContainer" />
+    <TheCoordinatesDisplay :TheScrollyContainer="TheScrollyContainer" />
   </div>
 </template>
 
@@ -17,11 +17,16 @@ export default {
     TheScrollyContainer,
     TheCoordinatesDisplay,
   },
-  data () {
+  data() {
     return {
     }
   },
-  store
+  computed: {
+    TheScrollyContainer() {
+      return this.$refs.TheScrollyContainer
+    }
+  },
+  store,
 }
 </script>
 
